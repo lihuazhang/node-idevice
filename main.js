@@ -45,7 +45,7 @@ IDevice.prototype._build_cmd = function (options) {
     cmd += this.cmd;
 
     if (this.uuid) {
-	cmd += " -U " + this.udid;
+	cmd += " -u " + this.udid;
     }
 
     if (typeof options == 'object' && options.indexOf) {
@@ -121,7 +121,7 @@ IDevice.prototype.listAll = function (cb) {
 };
 
 IDevice.prototype.remove = function (app, cb) {
-    exec(this._build_cmd(['-u', app]), function (err, stdout, stderr) {
+    exec(this._build_cmd(['-U', app]), function (err, stdout, stderr) {
 	if (err) {
 	    cb(err, stdout);
 	} else {
